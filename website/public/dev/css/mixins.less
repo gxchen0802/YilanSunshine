@@ -1,0 +1,229 @@
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+旋转
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.rotate(@angle:0deg) {
+    transform: rotate(@angle);
+    -ms-transform: rotate(@angle);    /* IE 9 */
+    -moz-transform: rotate(@angle);    /* Firefox */
+    -webkit-transform: rotate(@angle);    /* Safari以及Chrome */
+    -o-transform: rotate(@angle);    /* Opera */
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+圆角
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.border-radius(@radius) {
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+    border-radius: @radius;
+}
+.border-top-radius(@radius) {
+    -moz-border-top-right-radius: @radius;
+    -moz-border-top-left-radius: @radius;
+    -webkit-border-top-right-radius: @radius;
+    -webkit-border-top-left-radius: @radius;
+    border-top-right-radius: @radius;
+    border-top-left-radius: @radius;
+}
+.border-right-radius(@radius) {
+    -moz-border-bottom-right-radius: @radius;
+    -moz-border-top-right-radius: @radius;
+    -webkit-border-bottom-right-radius: @radius;
+    -webkit-border-top-right-radius: @radius;
+    border-bottom-right-radius: @radius;
+    border-top-right-radius: @radius;
+}
+.border-bottom-radius(@radius) {
+    -moz-border-bottom-right-radius: @radius;
+    -moz-border-bottom-left-radius: @radius;
+    -webkit-border-bottom-right-radius: @radius;
+    -webkit-border-bottom-left-radius: @radius;
+    border-bottom-right-radius: @radius;
+    border-bottom-left-radius: @radius;
+}
+.border-left-radius(@radius) {
+    -moz-border-bottom-left-radius: @radius;
+    -moz-border-top-left-radius: @radius;
+    -webkit-border-bottom-left-radius: @radius;
+    -webkit-border-top-left-radius: @radius;
+    border-bottom-left-radius: @radius;
+    border-top-left-radius: @radius;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+单行文本省略
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.ellipsis() {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    //对IE7+ | Safari的兼容
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    //对Opera的兼容
+    //-moz-binding: url("ellipsis.xml#ellipsis");
+    //对FireFox的兼容
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+清除浮动
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.clearfix() {
+    *zoom: 1;
+
+    &:after {
+        content: " ";
+        display: block;
+        clear: both;
+        height: 0;
+        font-size: 0;
+        visibility: hidden;
+    }
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+三角箭头(色块)的样式
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.triangle(@size) {
+    height: 0;
+    width: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: @size / 2;
+}
+.triangle-up(@color, @size) {
+    .triangle(@size);
+    border-bottom-color: @color;
+}
+.triangle-down(@color, @size) {
+    .triangle(@size);
+    border-top-color: @color;
+}
+.triangle-left(@color, @size) {
+    .triangle(@size);
+    border-right-color: @color;
+}
+.triangle-right(@color, @size) {
+    .triangle(@size);
+    border-left-color: @color;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+三角箭头（线框）的样式
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.arr(@size,@border,@color) {
+    .inline-block();
+    width: @size;
+    height: @size;
+    transition: .5s;
+    margin: 0 @size/2 -@size/2 @size/2;
+    border-top: @border solid @color;
+    border-left: @border solid @color;
+}
+.arr-up(@size, @border, @color) {
+    .arr(@size, @border, @color);
+    .rotate(45deg);
+}
+.arr-down(@size, @border, @color) {
+    .arr(@size, @border, @color);
+    .rotate(-135deg);
+}
+.arr-prev(@size, @border, @color) {
+    .arr(@size, @border, @color);
+    .rotate(-45deg);
+}
+.arr-next(@size, @border, @color) {
+    .arr(@size, @border, @color);
+    .rotate(135deg);
+}
+.inline-block() {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+.center-block() {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+多行文本超出部分省略号的的样式
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+// 多行文本省略
+.text-ellipsis-multi(@rowcount) {
+    display: -webkit-box;
+    -webkit-line-clamp: @rowcount;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+
+//1px线
+.setTopLine(@c: #C7C7C7) {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    border-top: 1px solid @c;
+    color: @c;
+    transform-origin: 0 0;
+    transform: scaleY(0.5);
+}
+
+.setBottomLine(@c: #C7C7C7) {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px solid @c;
+    color: @c;
+    transform-origin: 0 100%;
+    transform: scaleY(0.5);
+}
+
+.setLeftLine(@c: #C7C7C7) {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    border-left: 1px solid @c;
+    color: @c;
+    transform-origin: 0 0;
+    transform: scaleX(0.5);
+}
+
+.setRightLine(@c: #C7C7C7) {
+    content: " ";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    border-right: 1px solid @c;
+    color: @c;
+    transform-origin: 0 100%;
+    transform: scaleX(0.5);
+}
+
+//设置border(此边框只针对于内部不可点击情况)
+.setAllBorderLine(@c: #C7C7C7) {
+    content: " ";
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    border: 1px solid @c;
+    transform-origin: 0 0;
+    transform: scale(.5);
+}

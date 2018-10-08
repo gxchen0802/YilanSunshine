@@ -1,0 +1,171 @@
+@import 'validation.less';
+@import 'mixins.less';
+
+// 全局重写
+* {
+    font-family: Helvetica Neue, Helvetica, Roboto, Arial, PingFang SC, Hiragino Sans GB, Microsoft Yahei, Microsoft Jhenghei, sans-serif;
+    font-size: @def-font-size;
+    font-weight: 400;
+    line-height: @def-line-height;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    color: @def-font-color;
+
+    /* 占位符 */
+    &::-webkit-input-placeholder {
+
+        /* WebKit browsers */
+        color: @def-placeholder-color !important;
+    }
+    &:-moz-placeholder {
+
+        /* Mozilla Firefox 4 to 18 */
+        color: @def-placeholder-color !important;
+    }
+    &::-moz-placeholder {
+
+        /* Mozilla Firefox 19+ */
+        color: @def-placeholder-color !important;
+    }
+    &:-ms-input-placeholder {
+
+        /* Internet Explorer 10+ */
+        color: @def-placeholder-color !important;
+    }
+}
+.placeholder {
+    color: @def-placeholder-color !important;
+}
+body {
+    background-color: @color-white;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: 0 0;
+    min-width:1440px;
+}
+a {
+    cursor: pointer;
+    color: @def-font-color;
+
+    &:link {
+        text-decoration: none;
+    }
+    &:visited {
+        text-decoration: none;
+    }
+    &:hover {
+        text-decoration: none;
+        color: @def-font-color-hover;
+    }
+    &:active {
+        text-decoration: none;
+        color: @def-font-color-active;
+    }
+}
+th, td {
+    font-size: @def-font-size;
+    line-height: @def-line-height;
+    color: @def-font-color;
+}
+form, ul, li {
+    margin: 0;
+    padding: 0;
+}
+ul, li {
+    list-style-type: none;
+}
+ul {
+    display: block;
+}
+img {
+    border: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: @def-font-size;
+    font-weight: 400;
+}
+a, input, select, textarea, button {
+    outline: none;
+}
+// 小图标
+.icon {
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    .inline-block();
+}
+// 按钮
+.btn {
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    color: @color-white;
+    border: 0;
+    border-radius: 0;
+    outline: none;
+    .inline-block();
+
+    &:disabled, &.disabled {
+        cursor: no-drop;
+        color: @color-white;
+        background: @btn-color-disable;
+        background-image: none;
+
+        &:hover, &:active {
+            color: @color-white;
+            background: @btn-color-disable;
+        }
+    }
+    &:hover, &:active {
+        color: @color-white;
+    }
+}
+// 页面剧中
+.container {
+    width: 1160px;
+    padding: 0 140px;
+    margin: 0 auto;
+}
+.hide {
+    display: none !important;
+    visibility: hidden !important;
+}
+.show {
+    display: block !important;
+    visibility: visible !important;
+}
+.ovh {
+    overflow: hidden !important;
+}
+// 清除浮动
+.clearfix {
+    .clearfix();
+}
+// 浮动
+.float-left {
+    float: left;
+}
+.float-right {
+    float: right;
+}
+// 文字对齐
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+// 文本省略
+.text-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+// 多行文本省略
+.text-ellipsis-multi {
+    .text-ellipsis-multi (2);
+}
