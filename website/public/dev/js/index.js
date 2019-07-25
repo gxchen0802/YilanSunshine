@@ -1,6 +1,6 @@
 /**
  * [scrollFixed 滚动超出浮动]
- * @Author   bangyao.chen@ttpai.cn
+ * @Author   bangyao.chen
  * @DateTime 2018-10-06T23:15:59+0800
  * @param    {[string]}                 ele [需要监听的元素]
  */
@@ -36,7 +36,7 @@ function scrollFixed(ele) {
 
 /**
  * throttle 截流函数
- * @Author   bangyao.chen@ttpai.cn
+ * @Author   bangyao.chen
  * @DateTime 2018-10-06T23:15:59+0800
  * @param    {Function}               fn           回调函数
  * @param    {Number}                 delay        延迟毫秒数
